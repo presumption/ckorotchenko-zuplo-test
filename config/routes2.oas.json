@@ -1,0 +1,97 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "My API 1"
+  },
+  "servers": [
+    {
+      "url": "hello.example.com"
+    }
+  ],
+  "paths": {
+    "/kittens": {
+      "get": {
+        "summary": "Get all kittens",
+        "description": "Test description",
+        "responses": {
+          "200": {
+            "description": "A list of kittens",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Kitten"
+                  }
+                },
+                "examples": {
+                  "many_kittens": {
+                    "summary": "A list of kittens",
+                    "value": [
+                      {
+                        "id": 1,
+                        "name": "Milk",
+                        "color": "white"
+                      },
+                      {
+                        "id": 2,
+                        "name": "Peach",
+                        "color": "orange"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "a34ec02d-f86c-41f5-a5ed-2fd7b9d959cf",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://kittens.zuplo.io"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "mock-api-inbound-1"
+            ]
+          }
+        },
+        "tags": [
+          "Kittens"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Kitten": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Kitten ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Kitten's name"
+          },
+          "color": {
+            "type": "string",
+            "description": "Coat color"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "color"
+        ]
+      }
+    }
+  }
+}

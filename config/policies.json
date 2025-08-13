@@ -1,0 +1,29 @@
+{
+  "policies": [
+    {
+      "handler": {
+        "export": "MockApiInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "contentType": "application/json",
+          "random": false
+        }
+      },
+      "name": "mock-api-inbound-1",
+      "policyType": "mock-api-inbound"
+    },
+    {
+      "handler": {
+        "export": "RateLimitInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "rateLimitBy": "ip",
+          "requestsAllowed": 2,
+          "timeWindowMinutes": 1
+        }
+      },
+      "name": "my-custom-ratelimiter",
+      "policyType": "rate-limit-inbound"
+    }
+  ]
+}
