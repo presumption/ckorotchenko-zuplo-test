@@ -32,7 +32,10 @@
         "export": "default",
         "module": "$import(./modules/ip-restriction-policy)",
         "options": {
-          "allowedIpAddresses": ["184.42.1.4", "102.1.5.2/24"]
+          "allowedIpAddresses": [
+            "2a06:98c0:3600::103",
+            "2a02:8084:20c1:fd80:43e:cf9f:f101:90ee"
+          ]
         }
       }
     }
