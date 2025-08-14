@@ -86,12 +86,7 @@ const config: ZudokuConfig = {
       type: "file",
       input: "../config/routes2.oas.json",
       path: "api2",
-    },
-    {
-      type: "file",
-      input: "../config/books-spec.oas.json",
-      path: "books_api",
-    },
+    }
   ],
   authentication: {
     // IMPORTANT: This is a demo Auth0 configuration.

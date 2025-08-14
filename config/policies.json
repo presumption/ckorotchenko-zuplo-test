@@ -9,7 +9,7 @@
           "random": false
         }
       },
-      "name": "mock-api-inbound-1",
+      "name": "mock-api-inbound",
       "policyType": "mock-api-inbound"
     },
     {
@@ -24,6 +24,17 @@
       },
       "name": "my-custom-ratelimiter",
       "policyType": "rate-limit-inbound"
+    },
+    {
+      "name": "my-ip-restriction-inbound-policy",
+      "policyType": "ip-restriction-inbound",
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/ip-restriction-policy)",
+        "options": {
+          "allowedIpAddresses": ["184.42.1.4", "102.1.5.2/24"]
+        }
+      }
     }
   ]
 }

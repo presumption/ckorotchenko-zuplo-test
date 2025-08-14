@@ -58,7 +58,7 @@
           },
           "policies": {
             "inbound": [
-              "mock-api-inbound-1"
+              "mock-api-inbound"
             ]
           }
         },
