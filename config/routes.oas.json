@@ -58,9 +58,16 @@
             "options": {
               "baseUrl": "https://todo.zuplo.io"
             }
+          },
+          "policies": {
+            "inbound": [
+              "my-ip-restriction-inbound-policy"
+            ]
           }
         },
-        "tags": ["Todo"]
+        "tags": [
+          "Todo"
+        ]
       },
       "post": {
         "summary": "Create a new todo",
@@ -112,7 +119,9 @@
             }
           }
         },
-        "tags": ["Todo"]
+        "tags": [
+          "Todo"
+        ]
       }
     },
     "/todos/{id}": {
@@ -180,7 +189,9 @@
             }
           }
         },
-        "tags": ["Todo"]
+        "tags": [
+          "Todo"
+        ]
       },
       "delete": {
         "summary": "Delete a todo",
@@ -215,7 +226,9 @@
             }
           }
         },
-        "tags": ["Todo"]
+        "tags": [
+          "Todo"
+        ]
       }
     }
   },
@@ -241,7 +254,12 @@
             "description": "The user ID who owns the todo"
           }
         },
-        "required": ["id", "title", "completed", "userId"]
+        "required": [
+          "id",
+          "title",
+          "completed",
+          "userId"
+        ]
       },
       "CreateTodo": {
         "type": "object",
@@ -260,7 +278,10 @@
             "description": "The user ID who owns the todo"
           }
         },
-        "required": ["title", "userId"]
+        "required": [
+          "title",
+          "userId"
+        ]
       },
       "UpdateTodo": {
         "type": "object",
