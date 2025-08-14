@@ -61,7 +61,8 @@
           },
           "policies": {
             "inbound": [
-              "my-ip-restriction-inbound-policy"
+              "my-ip-restriction-inbound-policy",
+              "my-custom-ratelimiter"
             ]
           }
         },

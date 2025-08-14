@@ -15,7 +15,7 @@ export default async function (
     // TODO: Validate the policy options. Skipping in the example for brevity
 
     // Get the incoming IP address
-    const ip = request.headers.get("true-client-ip");
+    const ip = request.headers.get("true-client-ip") || "";
     console.log("IP:", ip);
 
     // If the allowed IP addresses are set, then the incoming IP
@@ -30,7 +30,7 @@ export default async function (
     // If the blocked IP addresses are set, then the incoming IP
     // can't be in that list
     if (options.blockedIpAddresses) {
-        const blocked = ipRangeCheck(ip, options.allowedIpAddresses);
+        const blocked = ipRangeCheck(ip, options.blockedIpAddresses);
         if (blocked) {
             return HttpProblems.unauthorized(request, context);
         }

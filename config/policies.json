@@ -17,8 +17,12 @@
         "export": "RateLimitInboundPolicy",
         "module": "$import(@zuplo/runtime)",
         "options": {
-          "rateLimitBy": "ip",
-          "requestsAllowed": 2,
+          "rateLimitBy": "function",
+          "identifier": {
+            "export": "rateLimitKey",
+            "module": "$import(./modules/per-user-rate-limit)"
+          },
+          "requestsAllowed": 1,
           "timeWindowMinutes": 1
         }
       },
